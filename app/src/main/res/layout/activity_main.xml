@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:background="@color/veryLightGray"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".UI.Main.MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuideLine"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuideLine"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topGuideLine"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <ImageView
+            android:id="@+id/ivLogo"
+            app:layout_constraintTop_toTopOf="@id/topGuideLine"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+            android:adjustViewBounds="true"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/tvLoginPrompt"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+            app:layout_constraintBottom_toBottomOf="@id/ivLogo"
+            android:layout_marginBottom="16dp"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="#000"
+            android:text="Please sign in to continue"
+            android:layout_width="0dp"
+              android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilUsername"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:endIconMode="clear_text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Enter Username">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUsername"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            app:layout_constraintTop_toBottomOf="@id/tilUsername"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:endIconMode="password_toggle"
+            android:layout_marginTop="8dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Enter Password">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            app:layout_constraintTop_toBottomOf="@id/tilPassword"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+            android:layout_marginTop="8dp"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:layout_height="54dp"
+            android:text="Login"/>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
