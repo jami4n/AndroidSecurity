@@ -3,6 +3,7 @@ package com.example.androidsecurity.Utils.Di
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import com.example.androidsecurity.Utils.EncryptionHelper
 import com.example.androidsecurity.Utils.SharedPrefHelper
 import dagger.Module
 import dagger.Provides
@@ -21,6 +22,13 @@ class ModuleClass(val app:Application){
     @Singleton
     fun getSharedPrefHelper():SharedPrefHelper{
         return SharedPrefHelper(getSharedPreferences())
+    }
+
+
+    @Provides
+    @Singleton
+    fun getEncryptionHelper(): EncryptionHelper {
+        return EncryptionHelper()
     }
 
 }

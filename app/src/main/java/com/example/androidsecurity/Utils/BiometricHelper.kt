@@ -21,7 +21,6 @@ object BiometricHelper{
                 }else{
                     biometricCallback.onBiometricAuthFailed(errString.toString())
                 }
-
             }
 
             override fun onAuthenticationFailed() {
@@ -45,8 +44,6 @@ object BiometricHelper{
                         .build()
 
         biometricPrompt.authenticate(promptInfo)
-
-
 
     }
 

@@ -13,6 +13,7 @@ import com.example.androidsecurity.UI.Home.HomeActivity
 import com.example.androidsecurity.Utils.ApplicationClass
 import com.example.androidsecurity.Utils.BiometricAuthHelper.authenticateViaBiometricPromt
 import com.example.androidsecurity.Utils.BiometricAuthHelper.authenticateViaFingerPrint
+import com.example.androidsecurity.Utils.EncryptionHelper
 import com.example.androidsecurity.Utils.SharedPrefHelper
 import com.example.androidsecurity.Utils.makeSnackBar
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity(),BiometricCallback {
 
     @Inject
     lateinit var sharedPref: SharedPrefHelper
+
+    @Inject
+    lateinit var encryption: EncryptionHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as ApplicationClass).componentClass.inject(this)
@@ -59,10 +63,11 @@ class MainActivity : AppCompatActivity(),BiometricCallback {
             if(users.get(username).equals(password)){
 
                 sharedPref.setPrivateAccessToken("Aq3heib23ir23203f8474h2349234f98")
-                sharedPref.setUserLoggedIn(etUsername.text.toString())
+                sharedPref.setUserLoggedIn(encryption.encrypt(etUsername.text.toString()))
 
                 etUsername.text?.clear()
                 etPassword.text?.clear()
+
 
                 startActivity(Intent(this,HomeActivity::class.java))
 
@@ -73,8 +78,6 @@ class MainActivity : AppCompatActivity(),BiometricCallback {
         }else{
             "User does not exist".makeSnackBar(btnLogin)
         }
-
-
     }
 
     private fun getDummyUsers():HashMap<String,String>{
